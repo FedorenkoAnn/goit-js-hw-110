@@ -2,34 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snackbar</title>
-    <link rel="stylesheet" href="css/reset.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Document</title>
   </head>
   <body>
-    <p><a href="index.html">Go back</a></p>
+    <a class="btn-nav" href="./index.html">Go back</a>
+
     <form class="form">
-      <label class="input-text">
+      <label class="delay-label">
         Delay (ms)
-        <input class= "input" type="number" name="delay" required />
+        <input class="input-delay" type="number" name="delay" required />
       </label>
-    
-      <fieldset class="checkbox">
-        <legend class="input-text">State</legend>
-        <label class="fulfilled">
+
+      <fieldset>
+        <legend>State</legend>
+        <label class="state-label">
           <input type="radio" name="state" value="fulfilled" required />
           Fulfilled
         </label>
-        <label>
+        <label class="state-label">
           <input type="radio" name="state" value="rejected" required />
           Rejected
         </label>
       </fieldset>
-    
-      <button class="submit-btn" type="submit">Create notification</button>
+
+      <button class="create-btn" type="submit">Create notification</button>
     </form>
 
-    <script src="./js/2-snackbar.js" type="module"></script>
+    <script type="module" src="./js/2-snackbar.js"></script>
   </body>
 </html>

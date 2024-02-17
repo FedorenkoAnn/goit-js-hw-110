@@ -1,41 +1,44 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
-document.querySelector('.form').addEventListener('submit', function (event) {
-    event.preventDefault();
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+import iconClose from '../img/bi_x-octagon.png';
+import iconOk from '../img/bi_check2-circle.svg';
 
-const delayInput = this.elements.delay;
-const stateInput = this.elements.state;
+const form = document.querySelector('.form');
+const submitBtn = document.querySelector('[type="submit"]');
 
-const delay = parseInt(delayInput.value, 10);
-const state = stateInput.value;
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
 
-const promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    if (state === 'fulfilled') {
-      resolve(delay);
-    } else {
-      reject(delay);
-    }
-  }, delay);
-});
+  const delay = Number(document.querySelector('[name="delay"]').value);
+  const state = document.querySelector('[name="state"]:checked');
 
-promise
-.then(delay => {
-  iziToast.success({
-    title: 'Success',
-    message: `✅ Fulfilled promise in ${delay}ms`,
-    position: 'topCenter',
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (state.value === 'fulfilled') {
+        resolve(delay);
+      } else {
+        reject(delay);
+      }
+    }, delay);
   });
-})
-.catch(delay => {
-  iziToast.error({
-    title: 'Error',
-    message: `❌ Rejected promise in ${delay}ms`,
-    position: 'topCenter',
-  });
-})
-.finally(() => {
-  // Очищення форми
-  this.reset();
-});
+
+  promise
+    .then(delay => {
+      iziToast.success({
+        message: `Fulfilled promise in ${delay}ms`,
+        messageColor: '#FFF',
+        backgroundColor: '#59A10D',
+        position: 'topRight',
+        iconUrl: iconOk,
+      });
+    })
+    .catch(delay => {
+      iziToast.error({
+        message: `Rejected promise in ${delay}ms`,
+        messageColor: '#FFF',
+        backgroundColor: '#EF4040',
+        position: 'topRight',
+        iconUrl: iconClose,
+      });
+    });
 });

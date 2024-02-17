@@ -2,35 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timer</title>
-    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Document</title>
   </head>
   <body>
-    <p><a href="index.html">Go back</a></p>
-    <input class ="input-timer" type="text" id="datetime-picker" />
-<button class="button" type="button" data-start>Start</button>
+    <a class="btn-nav" href="./index.html">Go back</a>
 
-<div class="timer">
-  <div class="field">
-    <span class="value" data-days>00</span>
-    <span class="label">Days</span>
-  </div>
-  <div class="field">
-    <span class="value" data-hours>00</span>
-    <span class="label">Hours</span>
-  </div>
-  <div class="field">
-    <span class="value" data-minutes>00</span>
-    <span class="label">Minutes</span>
-  </div>
-  <div class="field">
-    <span class="value" data-seconds>00</span>
-    <span class="label">Seconds</span>
-  </div>
-</div>
-
-    <script src="./js/1-timer.js" type="module"></script>
+    <div class="input-container">
+      <div class="choice-container">
+        <input class="input-field" type="text" id="datetime-picker" />
+        <button class="start-btn" type="button" data-start>Start</button>
+      </div>
+      <div class="timer">
+        <div class="field">
+          <span class="value" data-days>00</span>
+          <span class="label">Days</span>
+        </div>
+        <div class="field">
+          <span class="value" data-hours>00</span>
+          <span class="label">Hours</span>
+        </div>
+        <div class="field">
+          <span class="value" data-minutes>00</span>
+          <span class="label">Minutes</span>
+        </div>
+        <div class="field">
+          <span class="value" data-seconds>00</span>
+          <span class="label">Seconds</span>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./js/1-timer.js"></script>
   </body>
 </html>
